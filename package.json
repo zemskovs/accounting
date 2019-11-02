@@ -17,8 +17,8 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "copy-fonts": "cpy node_modules/framework7-icons/fonts/*.* src/fonts && cpy node_modules/material-design-icons/iconfont/*.{eot,ttf,woff,woff2} src/fonts",
-	"postinstall": "npm run copy-fonts",
-	"push": "git push -u origin master"
+    "postinstall": "npm run copy-fonts",
+    "push": "git push -u origin master"
   },
   "devDependencies": {
     "@types/jest": "^24.0.21",
