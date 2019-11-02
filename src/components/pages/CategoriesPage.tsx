@@ -31,7 +31,7 @@ const CategoriesPage: React.FC = props => {
 					></Searchbar>
 				</Subnavbar>
 			</Navbar>
-			<BlockTitle>Добавить покупки</BlockTitle>
+			<BlockTitle>Добавить покупку в категорию:</BlockTitle>
 			<List>
 				{!categories ? (
 					<div>Loading...</div>
@@ -40,7 +40,7 @@ const CategoriesPage: React.FC = props => {
 						<ListItem
 							key={category.id}
 							title={category.title}
-							link="#"
+							link={`/add-purchase/${category.id}`}
 						/>
 					))
 				)}

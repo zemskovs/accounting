@@ -14,7 +14,7 @@ export default [
 		component: CategoriesPage,
 	},
  	{
-		path: '/add-purchase',
+		path: '/add-purchase/:id',
 		component: AddPurchasePage,
 	},
 	{
