@@ -22,7 +22,6 @@ const CategoriesPage: React.FC = props => {
 				.then(x => x.json())
 				.then(x => setCategories(x.categories));
 	});
-	debugger
 	return (
 		<Page>
 			<Navbar title="Категории">
