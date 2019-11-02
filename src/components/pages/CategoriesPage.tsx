@@ -8,21 +8,18 @@ import {
 	Subnavbar,
 	Searchbar
 } from "framework7-react";
+import fetchHook from "../../hooks/fetchHook";
 
 import BottomBar, { Pages } from "../bottomBar/BottomBar";
 
 const CategoriesPage: React.FC = props => {
 	const [categories, setCategories] = useState();
 
-	useEffect(() => {
-		if (!categories)
-			fetch(
-				"https://zemskovs.github.io/accounting/src/demoData/categories.json"
-			)
-				.then(x => x.json())
-				.then(x => setCategories(x.categories));
-	});
-	debugger
+	fetchHook(
+		"https://zemskovs.github.io/accounting/src/demoData/categories.json",
+		res => setCategories(res.categories)
+	);
+	console.log("hello");
 	return (
 		<Page>
 			<Navbar title="Категории">
@@ -36,9 +33,17 @@ const CategoriesPage: React.FC = props => {
 			</Navbar>
 			<BlockTitle>Добавить покупки</BlockTitle>
 			<List>
-				<ListItem title="Link 1" link="#"></ListItem>
-				<ListItem title="Link 2" link="#"></ListItem>
-				<ListItem title="Link 3" link="#"></ListItem>
+				{!categories ? (
+					<div>Loading...</div>
+				) : (
+					categories.map(category => (
+						<ListItem
+							key={category.id}
+							title={category.title}
+							link="#"
+						/>
+					))
+				)}
 			</List>
 			<BottomBar tabIndex={Pages.categories} />
 		</Page>
