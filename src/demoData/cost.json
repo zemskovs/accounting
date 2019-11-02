@@ -3,13 +3,13 @@
 		{
 			"title": "Продукты",
 			"total": 1234,
-			"icon": "",
+			"icon": "fas fa-film",
 			"color": "rgba(255, 99, 132, 1)"
 		},
 		{
 			"title": "Кино",
 			"total": 8543,
-			"icon": "",
+			"icon": "fas fa-shopping-basket",
 			"color": "rgba(54, 162, 235, 1)"
 		}
 	]
