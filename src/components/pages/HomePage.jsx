@@ -1,9 +1,10 @@
-import React from 'react';
-import {
-    Page
-} from 'framework7-react';
+import React from "react";
+import { Page, Navbar,  Toolbar, Link  } from "framework7-react";
+import BottomBar from "../bottomBar/BottomBar";
 
 export default () => (
-  <Page>
-  </Page>
+	<Page>
+		<Navbar title="Бухгалтерия" />
+		<BottomBar />
+	</Page>
 );
