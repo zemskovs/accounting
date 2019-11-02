@@ -1,5 +1,5 @@
 import React from "react";
-import { Toolbar, Link } from "framework7-react";
+import { Toolbar, Link, Icon } from "framework7-react";
 
 export enum Pages {
 	home = 1,
@@ -16,19 +16,19 @@ const BottomBar: React.FC<BottomBarProps> = props => {
 	return (
 		<Toolbar tabbar bottom>
 			<Link href={"/"} tabLinkActive={props.tabIndex === Pages.home}>
-				Tab 1
+				<Icon icon="fas fa-home" />
 			</Link>
 			<Link
 				href="/categories"
 				tabLinkActive={props.tabIndex === Pages.categories}
 			>
-				Tab 2
+				<Icon icon="fas fa-ruble-sign" />
 			</Link>
 			<Link
 				href="/settings"
 				tabLinkActive={props.tabIndex === Pages.settings}
 			>
-				Tab 3
+				<Icon icon="fas fa-cog" />
 			</Link>
 		</Toolbar>
 	);
