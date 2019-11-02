@@ -1,1 +1,5 @@
 /* Your app styles here */
+.navbar {
+	background-color: #27c939;
+	--f7-navbar-text-color: #ffffff;
+}
