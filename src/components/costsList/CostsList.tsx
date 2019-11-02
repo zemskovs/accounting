@@ -9,9 +9,9 @@ type CostListProps = {
 const CostList: React.FC<CostListProps> = props => {
 	return (
 		<List>
-			{props.costs.map(c => (
-				<ListItem  title={c.title} badge={c.total}>
-					<Icon slot="media" icon="demo-list-icon"></Icon>
+			{props.costs.map((c,idx) => (
+				<ListItem key={idx}  title={c.title} badge={c.total}>
+					<Icon slot="media" icon={c.icon}></Icon>
 				</ListItem>
 			))}
 		</List>
