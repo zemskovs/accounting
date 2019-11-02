@@ -18,14 +18,14 @@ export default function(props) {
 	const f7params = {
 		id: "io.framework7.testapp", // App bundle ID
 		name: "Framework7", // App name
-		theme: "auto", // Automatic theme detection
+		theme: "md", // Automatic theme detection
 		// App routes
 		routes
 	};
 
 	return (
 		<App params={f7params}>
-			<View id="main-view" url="/" main className="safe-areas" />
+			<View id="main-view" url="/" main className="safe-areas" pushState />
 
 			<LoginScreen id="login-screen">
 				<View>
