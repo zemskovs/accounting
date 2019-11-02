@@ -48,7 +48,10 @@ export default () => {
 								options={{ legend: { display: false } }}
 							/>
 						</Block>
-						<BlockTitle>Расходы по категориям</BlockTitle>
+						<BlockTitle>
+							Расходы по категориям:{" "}
+							{cost.reduce((acc, x) => acc + x.total, 0)} рублей
+						</BlockTitle>
 						<CostList costs={cost} />
 					</SwiperSlide>
 					<SwiperSlide>Slide 2</SwiperSlide>
