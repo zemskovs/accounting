@@ -1,8 +1,12 @@
 import React from 'react';
+import { Page } from 'framework7-react';
+import BottomBar, { Pages } from '../bottomBar/BottomBar';
 
 const SettingsPage: React.FC = (props) => {
 	return (
-		<h1>SettingsPage</h1>
+		<Page>
+			<BottomBar tabIndex={Pages.settings} />
+		</Page>
 	)
 }
 
