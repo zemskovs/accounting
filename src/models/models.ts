@@ -3,3 +3,10 @@ export type Cost = {
 	icon: string;
 	total: number;
 };
+
+export type Categories = {
+	categries: {
+		id: number,
+		title: string,
+	}[]
+}

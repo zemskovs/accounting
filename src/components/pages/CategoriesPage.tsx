@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
 	Page,
 	Navbar,
@@ -12,6 +12,14 @@ import {
 import BottomBar, { Pages } from '../bottomBar/BottomBar';
 
 const CategoriesPage: React.FC = (props) => {
+	const [categories, setCategories] = useState()
+
+	useEffect(() => {
+		fetch("http://localhost:3001/public/demoData/categories.json")
+		.then(x => x.text())
+		.then(x => console.log(x));
+	})
+
 	return (
 		<Page>
 			<Navbar title="Категории">
