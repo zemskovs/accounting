@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import {
 	Page,
 	Navbar,
@@ -6,29 +6,32 @@ import {
 	List,
 	ListItem,
 	Subnavbar,
-	Searchbar,
- } from 'framework7-react';
+	Searchbar
+} from "framework7-react";
 
-import BottomBar, { Pages } from '../bottomBar/BottomBar';
+import BottomBar, { Pages } from "../bottomBar/BottomBar";
 
-const CategoriesPage: React.FC = (props) => {
-	const [categories, setCategories] = useState()
+const CategoriesPage: React.FC = props => {
+	const [categories, setCategories] = useState();
 
 	useEffect(() => {
-		fetch("http://localhost:3001/public/demoData/categories.json")
-		.then(x => x.text())
-		.then(x => console.log(x));
-	})
-
+		if (!categories)
+			fetch(
+				"https://zemskovs.github.io/accounting/src/demoData/categories.json"
+			)
+				.then(x => x.json())
+				.then(x => setCategories(x.categories));
+	});
+	debugger
 	return (
 		<Page>
 			<Navbar title="Категории">
-					<Subnavbar inner={false}>
-						<Searchbar
+				<Subnavbar inner={false}>
+					<Searchbar
 						searchContainer=".search-list"
 						searchIn=".item-title"
 						disableButton={false}
-						></Searchbar>
+					></Searchbar>
 				</Subnavbar>
 			</Navbar>
 			<BlockTitle>Добавить покупки</BlockTitle>
@@ -39,7 +42,7 @@ const CategoriesPage: React.FC = (props) => {
 			</List>
 			<BottomBar tabIndex={Pages.categories} />
 		</Page>
-	)
-}
+	);
+};
 
 export default CategoriesPage;
