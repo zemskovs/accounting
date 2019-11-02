@@ -3,6 +3,7 @@ import AddPurchasePage from './components/pages/AddPurchasePage';
 import CategoriesPage from './components/pages/CategoriesPage';
 import NotFoundPage from './components/pages/NotFoundPage';
 import SettingsPage from './components/pages/SettingsPage';
+import AddCategoriesPage from './components/pages/AddCategoriesPage';
 
 export default [
 	{
@@ -12,6 +13,10 @@ export default [
 	{
 		path: '/categories',
 		component: CategoriesPage,
+	},
+	{
+		path: "/add-categories/",
+		component: AddCategoriesPage
 	},
  	{
 		path: '/add-purchase/:id',
