@@ -12,6 +12,7 @@ import { Doughnut } from "react-chartjs-2";
 import CostList from "../costsList/CostsList";
 import { Cost } from "../../models/models";
 import fetchHook from "../../hooks/fetchHook";
+import { serverApiUrl } from "../../models/const";
 
 //toDO: разобраться с иконками
 export default () => {
@@ -20,7 +21,7 @@ export default () => {
 	]);
 
 	fetchHook(
-		"https://zemskovs.github.io/accounting/src/demoData/cost.json",
+		serverApiUrl+ "cost",
 		res => setCost(res.costs.sort((a, b) => b.total - a.total))
 	);
 

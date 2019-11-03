@@ -11,12 +11,13 @@ import {
 import fetchHook from "../../hooks/fetchHook";
 
 import BottomBar, { Pages } from "../bottomBar/BottomBar";
+import { serverApiUrl } from "../../models/const";
 
 const CategoriesPage: React.FC = props => {
 	const [categories, setCategories] = useState();
 
 	fetchHook(
-		"https://zemskovs.github.io/accounting/src/demoData/categories.json",
+		serverApiUrl + "categories",
 		res => setCategories(res.categories)
 	);
 
