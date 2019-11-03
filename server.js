@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // API calls
 app.get("/api/categories", (req, res) => {
-	res.send({
+	res.json({
 		categories: [
 			{
 				id: 1,
@@ -33,7 +33,7 @@ app.get("/api/categories", (req, res) => {
 });
 
 app.get("/api/cost", (req, res) => {
-	res.send({
+	res.json({
 		costs: [
 			{
 				title: "Продукты",
