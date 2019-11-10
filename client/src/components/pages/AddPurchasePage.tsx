@@ -1,8 +1,19 @@
 import React from "react";
-import { Page, Navbar, List, ListInput, Button } from "framework7-react";
+import { 
+	Page, 
+	Navbar, 
+	List, 
+	ListInput, 
+	Button,
+	BlockTitle } from "framework7-react";
 import BottomBar, { Pages } from "../bottomBar/BottomBar";
 
-class AddPurchasePage extends React.Component {
+export type AddPurchasePageOptions = {
+	id: number,
+	title: string
+}
+
+class AddPurchasePage extends React.Component<AddPurchasePageOptions> {
 	errors = new Map();
 	handleInput = (e) => {
 		this.errors.set(e.target.name, e.target.validity.valid || false)
@@ -26,7 +37,8 @@ class AddPurchasePage extends React.Component {
 		return (
 			<Page>
 				<Navbar title="Добавить покупку" backLink />
-				<List>
+				<BlockTitle>{`Категория: ${this.props.title}`}</BlockTitle>
+				<List> 
 					<ListInput
 						name="purchase"
 						label="Сумма покупки, руб"

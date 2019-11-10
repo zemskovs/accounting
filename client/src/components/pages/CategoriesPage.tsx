@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
 	Page,
 	Navbar,
@@ -6,18 +6,17 @@ import {
 	List,
 	ListItem,
 	Subnavbar,
-	Searchbar
+	Searchbar,
 } from "framework7-react";
 import fetchHook from "../../hooks/fetchHook";
 
 import BottomBar, { Pages } from "../bottomBar/BottomBar";
-import { serverApiUrl } from "../../models/const";
 
 const CategoriesPage: React.FC = props => {
 	const [categories, setCategories] = useState();
 
 	fetchHook(
-		serverApiUrl + "categories",
+		"/api/categories",
 		res => setCategories(res.categories)
 	);
 
@@ -41,7 +40,7 @@ const CategoriesPage: React.FC = props => {
 						<ListItem
 							key={category.id}
 							title={category.title}
-							link={`/add-purchase/${category.id}`}
+							link={`/add-purchase/${category.id}/${category.title}`}
 						/>
 					))
 				)}

@@ -19,7 +19,7 @@ export default [
 		component: AddCategoriesPage
 	},
  	{
-		path: '/add-purchase/:id',
+		path: '/add-purchase/:id/:title',
 		component: AddPurchasePage,
 	},
 	{

@@ -9,3 +9,7 @@
 	background-color: #27c939;
 	--f7-navbar-text-color: #ffffff;
 }
+
+.navbar .navbar-bg {
+	background-color: #27c939;
+}
