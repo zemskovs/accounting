@@ -1,16 +1,40 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
-const session = require('express-session');
-const cors = require('cors');
-const mongoose = require('mongoose');
-const errorHandler = require('errorhandler');
+const session = require("express-session");
+const cors = require("cors");
+const mongoose = require("mongoose");
+const errorHandler = require("errorhandler");
+require("./models/Users");
+
+mongoose.promise = global.Promise;
+
+const isProduction = process.env.NODE_ENV === "production";
 
 const app = express();
 const port = process.env.PORT || 5000;
 
+//App Config
+app.use(cors());
+app.use(require("morgan")("dev"));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "public")));
+app.use(
+	session({
+		secret: "passport-tutorial",
+		cookie: { maxAge: 60000 },
+		resave: false,
+		saveUninitialized: false
+	})
+);
+
+if (!isProduction) {
+	app.use(errorHandler());
+}
+
+mongoose.connect("mongodb://localhost/passport-tutorial"); //toDO: to universal
+mongoose.set("debug", true);
 
 // API calls
 app.get("/api/categories", (req, res) => {
