@@ -6,6 +6,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const errorHandler = require("errorhandler");
 require("./models/Users");
+require("./config/passport");
 
 mongoose.promise = global.Promise;
 
@@ -28,6 +29,7 @@ app.use(
 		saveUninitialized: false
 	})
 );
+// app.use(require('./routes'));//toDO: testing
 
 if (!isProduction) {
 	app.use(errorHandler());
